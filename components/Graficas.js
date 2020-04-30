@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, ActivityIndicator, TouchableHighlight, StyleSheet, ScrollView } from 'react-native';
+import { View, ActivityIndicator, TouchableHighlight, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { withTheme, Button, Subheading, Text } from 'react-native-paper';
 import { LineChart } from 'react-native-chart-kit';
 import { Picker } from '@react-native-community/picker';
@@ -111,7 +111,7 @@ const Graficas = ({ navigation, route, theme }) => {
                             }
                         ]
                         }}
-                        width={390} // from react-native
+                        width={Dimensions.get('window').width - 30} // from react-native
                         height={250}
                         yAxisInterval={5} // optional, defaults to 1
                         xLabelsOffset={23}
@@ -149,7 +149,7 @@ const Graficas = ({ navigation, route, theme }) => {
                             }
                         ]
                         }}
-                        width={390} // from react-native
+                        width={Dimensions.get('window').width - 30} // from react-native
                         height={250}
                         yAxisInterval={5} // optional, defaults to 1
                         xLabelsOffset={23}
@@ -211,7 +211,9 @@ const styles = StyleSheet.create({
         borderRadius: 1,
         borderStyle: 'solid',
         padding: 10,
-        marginBottom: 10
+        marginBottom: 10,
+        width: (Dimensions.get('window').width)/ 2.5,
+        justifyContent: 'center'
     },
     tarjeta:{
         backgroundColor: 'transparent',
