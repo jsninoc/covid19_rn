@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1040865954312",
+    "firebase_url": "https://estadisticas-covid-19.firebaseio.com",
+    "project_id": "estadisticas-covid-19",
+    "storage_bucket": "estadisticas-covid-19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040865954312:android:b56e9f7f8b4866e4159fbd",
+        "android_client_info": {
+          "package_name": "com.covid19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1040865954312-m54jdi8skcpnmh7dv4n249ojd6fovf6j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYWV5z9p4yKCROwztZYgnrhkRHyiwP8Nc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1040865954312-m54jdi8skcpnmh7dv4n249ojd6fovf6j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

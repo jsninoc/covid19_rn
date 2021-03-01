@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { View, ActivityIndicator, TouchableHighlight, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { View, ActivityIndicator, TouchableHighlight, StyleSheet, ScrollView, Dimensions, Button as ButtonRN } from 'react-native';
 import { withTheme, Button, Subheading, Text } from 'react-native-paper';
 import { LineChart } from 'react-native-chart-kit';
 import { Picker } from '@react-native-community/picker';
+import { InterstitialAd, AdEventType } from '@react-native-firebase/admob';
 
 import globalStyles from '../styles/global';
+
+const intersitial = InterstitialAd.createForAdRequest("ca-app-pub-8913542532762625/1464441243");
 
 const Graficas = ({ navigation, route, theme }) => {
 
@@ -17,6 +20,23 @@ const Graficas = ({ navigation, route, theme }) => {
     const [grafica, guardarGrafica] = useState('acumulados');
     const [ diaoprimido, guardarDiaOprimido ] = useState('');
     const [ casosoprimido, guardarCasosOprimido ] = useState('');
+
+    useEffect(() => {
+        const eventListener = intersitial.onAdEvent(type => {
+            if (type === AdEventType.LOADED) {
+                intersitial.show();
+            }
+        })
+
+        // Start loading the interstitial straight away
+        intersitial.load();
+
+
+        // Unsubscribe from events on unmount
+        return () => {
+            eventListener();
+        }
+    }, []);
 
     useEffect(() => {
         const fecthWorldData = async () => {
@@ -66,7 +86,6 @@ const Graficas = ({ navigation, route, theme }) => {
 
     return (
         <ScrollView style={globalStyles.contenedor}>
-
             <View style={{alignItems: 'center'}}>
                 <Subheading>Seleccione el rango de días para la gráfica</Subheading>
                 <Picker
